@@ -2,11 +2,12 @@ const generate = require('./generate');
 
 generate('react', component => `import React from 'react';
 
-const ${component.name} = ({ color = 'currentColor', size = 24, children, ...props }) => {
+const ${component.name} = ({ color = 'currentColor', size = 24, children, title, ...props }) => {
   const className = 'mdi-icon ' + (props.className || '');
 
   return (
-    <svg {...props} className={className} width={size} height={size} fill={color} viewBox="0 0 24 24">
+   <svg {...props} aria-labelledby={title.id} className={className} width={size} height={size} fill={color} viewBox="0 0 24 24">
+      <title id={title.id}>{title.name}</title>
       <path d="${component.svgPath}" />
     </svg>
   );
