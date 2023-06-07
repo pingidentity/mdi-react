@@ -21,7 +21,8 @@
     "build-preact": "yarn run clean-preact && yarn run generate-preact-readme && node scripts/generate-preact.js && cpr README-preact.md publish-preact/README.md -o && cpr CHANGELOG.md publish-preact/CHANGELOG.md -o && cpr LICENSE publish-preact/LICENSE -o"
   },
   "dependencies": {
-    "@mdi/svg": "7.2.96"
+    "@mdi/svg": "7.2.96",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "@types/node": "^9.6.6",
@@ -39,7 +40,6 @@
     "rimraf": "^2.6.1",
     "rollup": "^0.58.0",
     "rollup-plugin-babel": "^3.0.3",
-    "semver": "^6.3.0",
-    "uuid": "^9.0.0"
+    "semver": "^6.3.0"
   }
 }
