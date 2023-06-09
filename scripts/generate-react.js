@@ -5,7 +5,7 @@ import { v4 as uuid } from 'uuid';
 
 const ${component.name} = ({ color = 'currentColor', size = 24, children, title, ...props }) => {
   const className = 'mdi-icon ' + (props.className || '');
-  const titleId = title ? title.id ? title.id : uuid() : null;
+  const titleId = title ? (title.id ? title.id : uuid()) : null;
 
   return (
     <svg {...props} aria-labelledby={titleId} className={className} width={size} height={size} fill={color} viewBox="0 0 24 24">
