@@ -1,24 +1,26 @@
-# mdi-react [![npm package](https://img.shields.io/npm/v/mdi-react.svg?style=flat-square)](https://npmjs.org/package/mdi-react) [![Material Design Icons version](https://img.shields.io/badge/mdi-v7.2.96-blue.svg?style=flat-square)](https://materialdesignicons.com) [![build status](https://img.shields.io/travis/levrik/mdi-react/master.svg?style=flat-square)](https://travis-ci.org/levrik/mdi-react)
+_This is a fork of the `mdi-react` package and includes an accessibility fix for svg elements - see below for more info._
+
+# @pingux/mdi-react [![npm package](https://img.shields.io/npm/v/@pingux/mdi-react.svg?style=flat-square)](https://npmjs.org/package/@pingux/mdi-react) [![Material Design Icons version](https://img.shields.io/badge/mdi-v7.2.96-blue.svg?style=flat-square)](https://materialdesignicons.com)
 [Material Design Icons](https://materialdesignicons.com) for React packaged as single components
 
 ## Installation
 
 ```bash
-npm install mdi-react
+npm install @pingux/mdi-react
 # or if you use Yarn
-yarn add mdi-react
+yarn add @pingux/mdi-react
 ```
 ## Usage
 
 Just search for an icon on [materialdesignicons.com](https://materialdesignicons.com) and look for its name.  
-The name translates to PascalCase followed by the suffix `Icon` in `mdi-react`.  
+The name translates to PascalCase followed by the suffix `Icon` in `@pingux/mdi-react`.  
 Also it's possible to import with an alias. You can find them on the detail page of the respective icon.
 
 For example the icons named `alert` and `alert-circle`:
 
 ```javascript
-import AlertIcon from 'mdi-react/AlertIcon';
-import AlertCircleIcon from 'mdi-react/AlertCircleIcon';
+import AlertIcon from '@pingux/mdi-react/AlertIcon';
+import AlertCircleIcon from '@pingux/mdi-react/AlertCircleIcon';
 
 const MyComponent = () => {
   return (
@@ -52,22 +54,20 @@ You can also add default styling via the `mdi-icon` class.
 
 ## Accessibility 
 
-Icons get translated to svg elements in the DOM. In order for SVG elements to be accessible, the SVG element needs a title element with an ID and the SVG element should have an aria-labelledby attribute which should be set to the ID of the title. In order to do this, a title prop can be passed in to the Icon. 
+Icons get translated to SVG elements in the DOM. In order for SVG elements to be accessible, the SVG element needs a `<title>` element with an `id` and the SVG element should have an `aria-labelledby` attribute which should be set to the `id` of the `<title>`. In order to do this, a `title` prop object can be passed in to the Icon.
+
+When passing this object in, the `id` is optional. If it's not provided, one will be generated for you.
 
 ```javascript
-import SearchIcon from 'mdi-react/SearchIcon';
+import SearchIcon from '@pingux/mdi-react/SearchIcon';
 
 const MyComponent = () => {
   const title = {
-    id: 'title-id',
+    id: 'title-id', // Optional, otherwise a uuid will be used
     name: 'Icon Title',
   };
 
-  return (
-    <div>
-      <SearchIcon title={title}/>
-    </div>
-  );
+  return <SearchIcon title={title} />;
 };
 ```
 
